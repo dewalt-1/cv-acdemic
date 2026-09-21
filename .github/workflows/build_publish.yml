@@ -1,16 +1,15 @@
 ---
-name: Build and Publish PDF
+name: Build PDF
 
 on:  # yamllint disable-line rule:truthy
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 jobs:
   build_latex:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v7
@@ -18,18 +17,15 @@ jobs:
       - name: Build PDF
         uses: xu-cheng/latex-action@v4
         with:
-          root_file: cv-gboeing.tex
+          root_file: cv-drusinsky.tex
 
       - name: Compress PDF
         run: >
           docker run --rm -v "$PWD:/workdir" ptspts/pdfsizeopt
-          pdfsizeopt cv-gboeing.pdf cv-gboeing.pdf
+          pdfsizeopt cv-drusinsky.pdf cv-drusinsky.pdf
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v6
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
         with:
-          role-to-assume: arn:aws:iam::800820568312:role/github-actions-gboeing-cv
-          aws-region: us-west-2
-
-      - name: Upload PDF to AWS s3
-        run: aws s3 cp ./cv-gboeing.pdf s3://cv-gboeing/
+          name: cv-drusinsky
+          path: cv-drusinsky.pdf
