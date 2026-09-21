@@ -1,0 +1,300 @@
+% Ben Drusinsky's Curriculum Vitae
+% Email: ben.drusinsky@th-koeln.de
+% Web: https://bendrusinsky.com/
+% Repo: https://github.com/dewalt-1/cv-acdemic
+% Template: https://github.com/gboeing/cv (MIT)
+
+\RequirePackage[l2tabu,orthodox]{nag} % warn if using any obsolete commands
+\documentclass[11pt,letterpaper]{report} % document style
+
+% load encoding and font packages for pdflatex, in order
+\usepackage[T1]{fontenc}    % output 8-bit encoded fonts
+\usepackage[utf8]{inputenc} % allow input of utf-8 encoded characters
+\usepackage{ebgaramond}     % document's serif font
+\usepackage{tgheros}        % document's sans serif font
+
+% load babel, csquotes, and microtype in order
+\usepackage[USenglish]{babel} % auto-regionalize hyphens, quote marks, etc
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+\usepackage[babel=true]{microtype} % enable micro-typographic adjustments
+
+% load everything else
+\usepackage{datetime} % enable formatting of date output
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{geometry} % manually set page margins
+\usepackage{setspace} % custom line spacing
+\usepackage{tabto}    % make nice tabbing
+\usepackage{titlesec} % allow custom section fonts
+
+% load hyperref last for compatibility
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+
+% what is your name?
+\newcommand{\myname}{Ben Drusinsky}
+
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{1.7cm}
+
+% define font to use as document's title
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+
+% set section heading fonts and before/after spacing
+\SetTracking{encoding=*, family=\sfdefault}{30} % increase heading font tracking
+\titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
+\titlespacing{\section}{0pt}{30pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+% set subsection heading fonts and before/after spacing
+\titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
+\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+
+% set page margins (assumes letter paper)
+\geometry{body={6.5in, 9.0in},
+  left=1.0in,
+top=1.0in}
+
+% prevent paragraph indentation
+\setlength\parindent{0em}
+
+% set line spacing
+\setstretch{0.9}
+
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
+\renewenvironment{itemize}
+{
+  \begin{list}{}{\setlength{\leftmargin}{0em}
+      \setlength{\parskip}{0em}
+      \setlength{\itemsep}{\listitemspace}
+  \setlength{\parsep}{\listitemspace}}}
+  {
+\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+  labelindent=0em,
+  topsep=0em,
+  partopsep=0em,
+  itemsep=\listitemspace,
+  parsep=\listitemspace,
+font=\normalfont}
+
+% print only the month and year when using \today
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+% define hyperlink appearance and metadata for pdf properties
+\hypersetup{
+  colorlinks  = true,
+  urlcolor    = black,
+  citecolor   = black,
+  linkcolor   = black,
+  pdfauthor   = {\myname},
+  pdfkeywords = {computational design, media archaeology, critical making, human-computer interaction, permacomputing, architecture},
+  pdftitle    = {\myname: Curriculum Vitae},
+  pdfsubject  = {Curriculum Vitae},
+  pdfpagemode = UseNone
+}
+
+
+\begin{document}
+\raggedright{}
+
+% display your name as the document title
+\namefont{\myname}
+
+% affiliation and contact info blocks
+\vspace{1em}
+\begin{minipage}[t]{0.700\textwidth}
+  % current primary affiliation, left-aligned
+  Gevers Deynootweg 2G \\
+  2586 BL Den Haag \\
+  Netherlands
+\end{minipage}
+\begin{minipage}[t]{0.295\textwidth}
+  % contact info details, right-aligned
+  \raggedleft{}
+  \href{mailto:ben.drusinsky@th-koeln.de}{ben.drusinsky@th-koeln.de} \\
+  +31 648432257 \\
+  \href{https://bendrusinsky.com}{bendrusinsky.com}
+\end{minipage}
+
+\section*{Education}
+
+\begin{tablist}
+
+\item[PhD]   \tab{}Köln International School of Design (TH Köln) and Winchester School of Art (University of Southampton), in progress (2025--)
+\item[MDes]  \tab{}Industrial Design, Design and Technology, Bezalel Academy of Arts and Design, and DLX Lab, University of Tokyo, 2022
+\item[BArch] \tab{}(MArch equivalent), Bezalel Academy of Arts and Design, 2018
+
+\end{tablist}
+
+\section*{Appointments}
+
+\begin{tablist}
+
+\item[2025--]   \tab{}TH Köln \\
+  Adjunct lecturer, Code and Context BSc, Faculty of Computer Science \\
+  Adjunct lecturer, Integrated Design (BA) and Integrated Design Research (MA), Köln International School of Design
+
+\item[2021--23] \tab{}Technion -- Israel Institute of Technology \\
+  Associate researcher, Horizon Europe SONATA project, Faculty of Architecture and Town Planning
+
+\item[2019--23] \tab{}Bezalel Academy of Arts and Design \\
+  Adjunct lecturer and academic coordinator, School of Architecture
+
+\end{tablist}
+
+\section*{Research Areas}
+
+\begin{itemize}
+
+  \item Media archeology and critical making
+  \item Human-computer interaction, permacomputing and computation within limits
+  \item Architecture history and theory
+
+\end{itemize}
+
+\section*{Publications}
+
+\subsection*{Conference proceedings}
+
+\begin{tablist}
+
+\item[2026] \tab{}B. Drusinsky. \enquote{When Beds Stopped Working.} \textit{Proceedings of the 14th Conference on Computation, Communication, Aesthetics \& X}. Turin, Italy. In press.
+
+\item[2025] \tab{}B. Drusinsky, L. Scherffig, T. Dillon, and C. Höfer. \enquote{In Every Dream Home an Internet.} \textit{Mensch und Computer 2025 Workshops}. \href{https://doi.org/10.18420/muc2025-mci-ws14-175}{doi:10.18420/muc2025-mci-ws14-175}
+
+\item[2024] \tab{}B. Drusinsky, S. Grodsky, E. Haiman, and D. Schaumann. \enquote{A Simulation Framework for Space-Use Alignment in Adaptive Environments.} \textit{Proceedings of eCAADe 2024}. \href{https://doi.org/10.52842/conf.ecaade.2024.1.653}{doi:10.52842/conf.ecaade.2024.1.653}
+
+\item[2023] \tab{}D. Schaumann, N. Duvdevani, A. Elya, I. Levin, T. Sofer, B. Drusinsky, et al. \enquote{Coupling Co-presence in Physical and Virtual Environments Toward Hybrid Places.} \textit{CAAD Futures 2023}. \href{https://doi.org/10.1007/978-3-031-37189-9_35}{doi:10.1007/978-3-031-37189-9\_35}
+
+\end{tablist}
+
+\section*{Invited Talks}
+
+\begin{tablist}
+
+\item[2026] \tab{}\enquote{Computer Room and Other Stories: Breaking LLMs as a Design Practice.} Learning to Teach: (Re)designing Creative Tech Pedagogy symposium, NYU Tandon Integrated Design \& Media. New York, New York (virtual). Jan.
+
+\item[2025] \tab{}\enquote{In Every Dream Home an Internet.} Update: Blue Shift Symposium, Riga Technical University. Liepāja, Latvia. Oct.
+
+\item[2025] \tab{}\enquote{NolliGAN: Generative Mapping as Spatial Exploration.} Transform 2025: Conference on AI, Art and Society, Hochschule Trier. Trier, Germany. Sept.
+
+\item[2025] \tab{}\enquote{Computational Design for Mapping Sentiment Analysis.} CDFAM Computational Design Symposium. Amsterdam, Netherlands. Jul.
+
+\item[2025] \tab{}\enquote{In Every Dream Home an Internet.} design:promoviert, DGTF Doctoral Research Colloquium, HTW Dresden. Dresden, Germany. Jun.
+
+\item[2025] \tab{}\enquote{NolliGAN: Generative Mapping as Spatial Exploration.} Livingmaps Network Conference: More-than-Human Mapping, University of London. London, England. Apr.
+
+\end{tablist}
+
+\section*{Conference Activity}
+
+\subsection*{Workshops led}
+
+\begin{tablist}
+
+\item[2026] \tab{}\enquote{Shifting Protocols, Designing Orders: A Participatory Workshop on Decentralised Governance for the Built Environment.} 22nd Annual Conference of the DGTF, Goethe University Frankfurt. Frankfurt am Main, Germany. Jun.
+
+\item[2026] \tab{}\enquote{Local LLMs for Design Research: Considerations for Ethical and Environmental Use of AI.} By Design and By Disaster, Free University of Bozen-Bolzano. Bolzano, Italy. May.
+
+\item[2025] \tab{}\enquote{Build Your Own AI Companion: Hacking AI with Low-Tech Computing.} Update: Blue Shift Symposium, Riga Technical University. Liepāja, Latvia. Oct.
+
+\item[2025] \tab{}\enquote{Local LLMs for Design Research: Considerations for Ethical and Environmental Use of AI.} design:promoviert, DGTF Doctoral Research Colloquium, HTW Dresden. Dresden, Germany. Jun.
+
+\end{tablist}
+
+\subsection*{Conference papers presented}
+
+\begin{tablist}
+
+\item[2026] \tab{}B. Drusinsky. \enquote{When Beds Stopped Working.} 14th Conference on Computation, Communication, Aesthetics \& X. Turin, Italy. Jul.
+
+\item[2025] \tab{}B. Drusinsky, L. Scherffig, T. Dillon, and C. Höfer. \enquote{In Every Dream Home an Internet.} Mensch und Computer 2025. Chemnitz, Germany. Sept.
+
+\item[2024] \tab{}B. Drusinsky, S. Grodsky, E. Haiman, and D. Schaumann. \enquote{A Simulation Framework for Space-Use Alignment in Adaptive Environments.} eCAADe 2024. Nicosia, Cyprus. Sept.
+
+\end{tablist}
+
+\section*{Exhibitions and Residencies}
+
+\subsection*{Residencies}
+
+\begin{tablist}
+
+\item[2026]     \tab{}TeleAgriCulture hackathon. DFKI, Berlin, Germany. Jun.
+
+\item[2026]     \tab{}TeleAgriCulture hackathon. V2\_ Lab for the Unstable Media, Rotterdam, Netherlands. Apr.
+
+\item[2025--26] \tab{}Microdosing AI, artist residency. V2\_ Lab for the Unstable Media, Rotterdam, Netherlands. Dec--Mar.
+
+\item[2025]     \tab{}Mirage, algorithmic performance residency. V2\_ Lab for the Unstable Media, Rotterdam, Netherlands. Oct--Nov.
+
+\end{tablist}
+
+\subsection*{Exhibitions and performances}
+
+\begin{tablist}
+
+\item[2026] \tab{}Rotterdam Art Week, live performance commission. De Achtertuin, Rotterdam, Netherlands. Mar.
+
+\item[2025] \tab{}15 Years of From Scratch, live coding performance (organizer and performer). TOPLAP Netherlands, with Studio RNDR and nl\_cl. Den Haag, Netherlands. Dec.
+
+\item[2025] \tab{}TurgotGAN. BYOD\textsuperscript{2}, Shibuya, Tokyo, Japan. Feb.
+
+\item[2023] \tab{}BillYourSelf. Jerusalem Design Week. Jerusalem, Israel. Jul.
+
+\item[2021] \tab{}NolliGAN. The WRONG Biennale. Barcelona, Spain / online. Aug.
+
+\end{tablist}
+
+\section*{Courses Taught}
+
+\subsection*{TH Köln}
+
+\begin{itemize}
+
+  \item Introduction to Physical Computing (Code and Context BSc)
+  \item Computer Room (Köln International School of Design)
+
+\end{itemize}
+
+\subsection*{Bezalel Academy of Arts and Design}
+
+\begin{itemize}
+
+  \item The Productive Superblock, with Dr.\ Aiman Tabony
+  \item The Dictionary of Political Ideas, with Dr.\ Erez Golani Solomon
+  \item Building Systems as Technology (teaching assistant)
+
+\end{itemize}
+
+\section*{Languages}
+
+\begin{itemize}
+
+  \item English (native), Hebrew (native)
+
+\end{itemize}
+
+\section*{Professional Employment}
+
+\begin{tablist}
+
+\item[2026--]   \tab{}Senior computational designer and AI integration lead, HQA, Tel Aviv, Israel (remote)
+\item[2024--]   \tab{}Co-founder, Urban Futures Lab, The Hague, Netherlands
+\item[2022--25] \tab{}Senior computational designer and architect, YGAA, Tel Aviv, Israel (remote)
+\item[2018--21] \tab{}Senior architectural designer, DY-CommonPlanning, Jerusalem, Israel
+
+\end{tablist}
+
+% display today's date as Month Year after a vertical space below the end of the text
+\begin{center}
+  \vfill
+  Updated \monthyeardate\today
+\end{center}
+
+\end{document}

@@ -1,7 +1,17 @@
 # Academic CV
 
-This repo contains [Geoff Boeing](https://geoffboeing.com/)'s LaTeX academic CV.
+Ben Drusinsky's LaTeX academic CV.
 
-You can view the CV as a [PDF](https://geoffboeing.com/cv).
+The TeX file is compiled to PDF by a [GitHub Actions workflow](.github/workflows/build_publish.yml) on every push to `main` and on pull requests; the PDF is attached to the workflow run as an artifact (`cv-drusinsky`). The PDF itself is not committed.
 
-This repo is permissively licensed for others to adapt. The CV content and formatting follow academic standards and emphasize clear information presentation and typography. The CV's TeX file is automatically compiled to PDF and published whenever a commit is pushed to the main branch, via this [workflow](https://github.com/gboeing/cv/blob/main/.github/workflows/build_publish.yml). This keeps the publicly distributed PDF up-to-date while avoiding commit history pollution from frequent changes to a binary file.
+## Building locally
+
+```bash
+pdflatex cv-drusinsky.tex && pdflatex cv-drusinsky.tex
+```
+
+Requires a TeX distribution with `ebgaramond`, `tex-gyre`, `csquotes`, `microtype`, `datetime`, `enumitem`, `tabto`, and `titlesec`.
+
+## Credit
+
+Forked from [Geoff Boeing's academic CV](https://github.com/gboeing/cv), used under the MIT license. The formatting and LaTeX structure are his; the content is mine.
